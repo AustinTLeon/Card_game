@@ -59,7 +59,7 @@ class Poker(Game):
 		randNum = random.randint(1, num)
 		for x in self.currentPlayers:
 			if name == x.name:
-				if len(x.hand) < 5:
+				if len(x.hand) < self.max_hand_size:
 					x.hand.insert(len(x.hand), self.deck.deck.pop(randNum))
 				else:
 					print('Hand is Full')
