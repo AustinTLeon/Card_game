@@ -16,10 +16,11 @@ class Game():
 		self.name = name
 		self.gameType = gameType
 
-	def addPlayers(self):
-	"""This method adds a player to the currentPlayers list and adds 1 to the numOfPlayers of the game"""
-		Game.numOfPlayers += 1
-		self.currentPlayers.append('Player: {}'.format(str(Game.numOfPlayers)))
+	def addPlayers(self, num):
+	"""This adds a given num of players and adds 1 to the total num of player for the game"""	
+		for x in range(num):
+			Game.numOfPlayers += 1
+			self.currentPlayers.append('Player: {}'.format(str(Game.numOfPlayers)))
 
 
 	def showPlayers(self):
