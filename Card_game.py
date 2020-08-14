@@ -6,6 +6,25 @@ class Player():
 	"""This method allows you to change the name of select player"""
 		self.name = name
 
+class Deck():
+	def __init__(self):
+		self.deck = []
+	def fillDeck(self):
+	"""Fills or refills the deck of cards"""
+		suites = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+		values = [ 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+		for suite in suites:
+        
+			for value in values:
+            
+				if value not in self.deck:
+                
+					self.deck.append(suite + ':' + value)
+
+	def shuffleDeck(self):
+        
+		return random.shuffle(self.deck)
+
 class Game():
 
 	currentPlayers = [Player()]
