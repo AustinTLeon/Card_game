@@ -53,6 +53,9 @@ class Poker(Game):
 
 	def addDeck(self):
 		poker.deck = Deck()
+	
+	def __str__(self):
+		print('This is the game of Poker!')
 
 	def drawCards(self, name):
 		num = len(self.deck.deck)-1
