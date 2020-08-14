@@ -1,16 +1,18 @@
+import random
 class Player():
-	def __init__(self):
-		name = ''
-		hand = []
+	def __init__(self, name = None):
+		if name != None:
+			self.name = name
+		else:
+			pass
+		self.hand = []
 	def changeName(self, name):
-	"""This method allows you to change the name of select player"""
 		self.name = name
 
 class Deck():
 	def __init__(self):
 		self.deck = []
 	def createDeck(self):
-	"""Creates a deck of cards"""
 		suites = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 		values = [ 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 		for suite in suites:
@@ -27,7 +29,7 @@ class Deck():
 
 class Game():
 
-	currentPlayers = [Player()]
+	currentPlayers = []
 	numOfPlayers = 0
 
 	def __init__(self, name, gameType):
@@ -35,16 +37,31 @@ class Game():
 		self.name = name
 		self.gameType = gameType
 
-	def addPlayers(self, num):
-	"""This adds a given num of players and adds that many to the total num of player for the game"""	
+	def addPlayers(self,num):
 		for x in range(num):
 			Game.numOfPlayers += 1
-			self.currentPlayers.append('Player: {}'.format(str(Game.numOfPlayers)))
+			self.currentPlayers.append(Player('Player: {}'.format(str(Game.numOfPlayers))))
 
 
 	def showPlayers(self):
-	"""Prints all the players in game"""
-		print(self.currentPlayers)
+		for x in self.currentPlayers:
+			print('{} has a hand of:'.format(x.name) + str(x.hand) + "\n")
 
 class Poker(Game):
 	max_hand_size = 5
+	numOfDeck = 0
+
+	def addDeck(self):
+		poker.deck = Deck()
+
+	def drawCards(self, name):
+		num = len(self.deck.deck)-1
+		randNum = random.randint(1, num)
+		for x in self.currentPlayers:
+			if name == x.name:
+				if len(x.hand) < 5:
+					x.hand.insert(len(x.hand), self.deck.deck.pop(randNum))
+				else:
+					print('Hand is Full')
+			else:
+				pass
