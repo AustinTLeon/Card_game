@@ -9,8 +9,8 @@ class Player():
 class Deck():
 	def __init__(self):
 		self.deck = []
-	def fillDeck(self):
-	"""Fills or refills the deck of cards"""
+	def createDeck(self):
+	"""Creates a deck of cards"""
 		suites = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
 		values = [ 'Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 		for suite in suites:
