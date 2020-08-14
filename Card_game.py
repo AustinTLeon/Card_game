@@ -17,7 +17,7 @@ class Game():
 		self.gameType = gameType
 
 	def addPlayers(self, num):
-	"""This adds a given num of players and adds 1 to the total num of player for the game"""	
+	"""This adds a given num of players and adds that many to the total num of player for the game"""	
 		for x in range(num):
 			Game.numOfPlayers += 1
 			self.currentPlayers.append('Player: {}'.format(str(Game.numOfPlayers)))
